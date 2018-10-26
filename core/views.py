@@ -8,11 +8,3 @@ def index(request):
 
 def contact(request):
     return render(request, 'contact.html')
-
-
-def products_list(request):
-    return render(request, 'products_list.html')
-
-
-def product(request):
-    return render(request, 'product.html')
