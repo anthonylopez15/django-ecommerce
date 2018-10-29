@@ -14,6 +14,7 @@ class ProductListView(ListView):
 class CategoryListView(ListView):
     template_name = 'catalog/category.html'
     context_object_name = 'product_list'
+    paginate_by = 3
 
     def get_queryset(self):
         return Product.objects.filter(category__slug=self.kwargs['slug'])
