@@ -1,5 +1,5 @@
-from django.http import HttpResponse
 from django.shortcuts import render
+from .forms import ContactForm
 
 
 def index(request):
@@ -7,4 +7,13 @@ def index(request):
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    success = False
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        form.send_email()
+        success = True
+    context = {
+        'form': form,
+        'success': success
+    }
+    return render(request, 'contact.html', context)
