@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # apps
     'core',
     'catalog',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -145,7 +146,8 @@ DEFAULT_FROM_EMAIL = 'admin@admin.com.br'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
-
+LOGOUT_URL = 'logout'
+AUTH_USER_MODEL = 'accounts.User'
 
 try:
     from .local_settings import *
