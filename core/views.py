@@ -11,12 +11,11 @@ User = get_user_model()
 
 # def index(request):
 #     return render(request, 'index.html')
+
+
 class IndexView(TemplateView):
 
     template_name = 'index.html'
-
-
-index = IndexView.as_view()
 
 
 def contact(request):
@@ -40,4 +39,5 @@ class RegisterView(CreateView):
     success_url = reverse_lazy('index')
 
 
+index = IndexView.as_view()
 register = RegisterView.as_view()
