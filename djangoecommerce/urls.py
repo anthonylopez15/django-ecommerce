@@ -4,6 +4,7 @@ from django.urls import path, include
 from core import views
 from catalog import urls as catalog_urls
 from accounts import ulrs as accounts_urls
+from checkout import urls as checkout_urls
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -13,5 +14,6 @@ urlpatterns = [
     path('sair/', LogoutView.as_view(next_page='/'), name="logout"),
     path('catalogo/', include(catalog_urls)),
     path('conta/', include(accounts_urls)),
+    path('compras/', include(checkout_urls)),
     path('admin/', admin.site.urls),
 ]
