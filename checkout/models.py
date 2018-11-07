@@ -47,7 +47,7 @@ class OrderManager(models.Manager):
                 order=order, quantity=cart_item.quantity, product=cart_item.product,
                 price=cart_item.price
             )
-            return order
+        return order
 
 
 class Order(models.Model):
@@ -117,7 +117,5 @@ def post_save_cart_item(instance, **kwargs):
 
 
 models.signals.post_save.connect(
-    post_save_cart_item,
-    sender=CartItem,
-    dispatch_uid='post_save_cart_item'
+    post_save_cart_item, sender=CartItem, dispatch_uid='post_save_cart_item'
 )
